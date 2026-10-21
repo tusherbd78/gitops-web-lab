@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: ghcr.io/tusherbd78/gitops-web-lab:021deec295cb3e2e9ab0470051c477fabe0219a5
+          image: ghcr.io/tusherbd78/gitops-web-lab:69aed8377a83502da2430b65511ea370a7ca224a
           ports:
             - containerPort: 80
           resources:
