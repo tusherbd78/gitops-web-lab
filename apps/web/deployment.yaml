@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gitops-web
+  template:
+    metadata:
+      labels:
+        app: gitops-web
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/tusherbd78/gitops-web-lab:0f0a9243363b8d52ef30e10abd61c71411a7f10a
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 5
